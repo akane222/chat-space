@@ -1,11 +1,15 @@
-.main-chat
-  .main-chat__group-info
-    .main-chat__group-info__left-box
-      %p.main-chat__group-info__left-box__group-name abcdefg
-      %ul.main-chat__group-info__left-box__member
+.chat-main
+  .chat-main__group-info
+    .chat-main__group-info__left-box
+      %p.chat-main__group-info__left-box__group-name
+        abcdefg
+      %ul.chat-main__group-info__left-box__member
         Member :
-        %li.main-chat__group-info__left-box__member__name hijklmn
-    %a.main-chat__group-info__edit{:href => "#"} Edit
+        %li.chat-main__group-info__left-box__member__name
+          hijklmn
+    .chat-main__group-info__edit
+      = link_to "#", class: "edit-btn" do
+        Edit
   .chat-main__message-list
     .chat-main__message-list__message
       .chat-main__message-list__message__info
