@@ -44,17 +44,21 @@
     &__group-list {
       height: calc(100vh - 100px);
       background-color: #2f3e51;
-
-      &__group {
+      a {
         color: #ffffff;
-        padding: 20px 40px 20px 20px;
+        text-decoration: none;
+        display: block;
 
-        &__group-name {
-          font-size: 15px;
-          margin-bottom: 5px;
-        }
-        &__message {
-          font-size: 11px;
+        .side-bar__group-list__group {
+          padding: 20px 40px 20px 20px;
+  
+          .group-name {
+            font-size: 15px;
+            margin-bottom: 5px;
+          }
+          .message {
+            font-size: 11px;
+          }
         }
       }
     }
@@ -148,11 +152,10 @@
       background-color: #d2d2d2;
       height: 90px;
       padding: 20px 40px;
-
-      &__new-message {
+      .new_message {
         display: flex;
-
-        &__input-box {
+        justify-content: space-between;
+        .chat-main__form__new-message__input-box {
           position: relative;
           width: 100%;
           .input-box__text {
@@ -166,13 +169,11 @@
             top: 10px;
             right: 10px;
             cursor: pointer;
-            .image-btn {
-              color: black;
-              
+            input {
+              display: none;
             }
           }
         }
-
         .submit-btn {
           width: 100px;
           height: 50px;
