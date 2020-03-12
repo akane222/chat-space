@@ -2,29 +2,23 @@
   .chat-main__group-info
     .chat-main__group-info__left-box
       %p.chat-main__group-info__left-box__group-name
-        abcdefg
+        #{@group.name}
       %ul.chat-main__group-info__left-box__member
-        Member :
-        %li.chat-main__group-info__left-box__member__name
-          hijklmn
+        Members:
+        - @group.users.each do |user|
+          %li.chat-main__group-info__left-box__member__name #{user.name}
     .chat-main__group-info__edit
-      = link_to "#", class: "edit-btn" do
-        Edit
+      = link_to 'Edit', edit_group_path(@group), class: 'edit-btn'
   .chat-main__message-list
     .chat-main__message-list__message
-      .chat-main__message-list__message__info
-        %p.chat-main__message-list__message__info__talker aaa
-        %p.chat-main__message-list__message__info__date 2020/03/10
-      .chat-main__message-list__message__text テキスト
-    .chat-main__message-list__message
-      .chat-main__message-list__message__info
-        %p.chat-main__message-list__message__info__talker 名前
-        %p.chat-main__message-list__message__info__date 2020/03/10
-      .chat-main__message-list__message__text テキスト
+      = render @messages
+
   .chat-main__form
     .chat-main__form__new-message
-      .chat-main__form__new-message__input-box
-        %input.input-box__text{:placeholder => "type a message"}/
-        %label.input-box__image{:for => "message_image"}
-          %i.fa.fa-image
-      %input.submit-btn{:name => "commit", :type => "submit", :value => "Send"}/
+      = form_for [@group, @message] do |f|
+        .chat-main__form__new-message__input-box
+          = f.text_field :content, class: 'input-box__text', placeholder: 'type a message'
+          = f.label :image, class: 'input-box__image' do
+            %i.fa.fa-image
+            = f.file_field :image, class: 'hidden'
+        = f.submit 'Send', class: 'submit-btn'
