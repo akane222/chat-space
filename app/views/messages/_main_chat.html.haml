@@ -10,8 +10,7 @@
     .chat-main__group-info__edit
       = link_to 'Edit', edit_group_path(@group), class: 'edit-btn'
   .chat-main__message-list
-    .chat-main__message-list__message
-      = render @messages
+    = render @messages
 
   .chat-main__form
     .chat-main__form__new-message
