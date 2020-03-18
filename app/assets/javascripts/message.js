@@ -106,6 +106,6 @@ $(function(){
     });
   };
   if (document.location.href.match(/\/groups\/\d+\/messages/)) {
-    setInterval(reloadMessages, 1000);
+    setInterval(reloadMessages, 7000);
   }
 });
